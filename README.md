@@ -5,6 +5,8 @@ Serves static files from one or more paths in your URL structure. Each URL path 
 
 ## Configuration
 
+The components in this package make use of the `app.locals.publicFiles` namespace. The `preparePublicFiles()` function helps set up the data structure correctly.
+
 Configuration environment variables for the example.
 
 * `PUBLIC_FILES` - JSON-encoded mapping of URL paths to serve static files at, and the directories to look in for each file under that path. e.g. `{"/public/js": ["./jquery/", "./react"], "/theme": ["./static"]}`
@@ -28,20 +30,7 @@ Internally, the code is designed to work in these stages:
 
 ## Example
 
-```
-DEBUG="express-public-files-overlays:server" npm start
-```
-
-Visit http://localhost:8000/public/hello.txt and you'll see the value `one` served from `./bin/public/hello.txt`.
-
-If you specify `PUBLIC_FILES` too, the config from that will be used in preference. First files will first be searched for in `./bin/public` and then be searched for in `./bin/public-overlay`. You can try moving or deleting the files in those directories to see the behaviour in action:
-
-```
-DEBUG="express-public-files-overlays:server" PUBLIC_FILES='{"/public": ["./bin/public-overlay"]}' npm start
-```
-
-Visit http://localhost:8000/public/hello.txt this time and you'll see the value `one` served from `./bin/public-overlay/hello.txt` again. If you delete that file, `/public/hello.txt` will be served from `./bin/public/hello.txt`.
-
+See the `./example` directory.
 
 ## Dev
 
@@ -54,6 +43,11 @@ npm run "docker:push"
 
 
 ## Changelog
+
+### 0.1.1 2019-02-07
+
+* Changed debug behaviour to use own `debug()`, not `app.locals.debug()`.
+* Moved the example to `./example`.
 
 ### 0.1.0 2019-02-06
 
