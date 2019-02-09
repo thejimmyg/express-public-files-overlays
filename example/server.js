@@ -13,4 +13,4 @@ preparePublicFiles(app, publicFilesFromEnv(app))
 app.locals.publicFiles.overlay('/public', [path.join(__dirname, 'public')])
 
 setupPublicFiles(app)
-app.listen(8000, () => console.log(`Example app listening on port 8000`))
+app.listen((process.env.PORT || 80), () => console.log(`Example app listening on port ${process.env.PORT || 80}`))

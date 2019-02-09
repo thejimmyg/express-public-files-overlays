@@ -1,15 +1,9 @@
 {
   "name": "express-public-files-overlays",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Serve a set of static files from each URL path, looking in each of a set of directories in turn.",
   "scripts": {
-    "docker:build": "docker build . -t thejimmyg/express-public-files-overlays:0.1.1",
-    "docker:push": "docker push thejimmyg/express-public-files-overlays:0.1.1",
-    "docker:build:test": "docker build . -t thejimmyg/express-public-files-overlays:test",
-    "docker:push:test": "docker push thejimmyg/express-public-files-overlays:test",
-    "docker:run": "docker run -e SCRIPT_NAME='' -e DEBUG'=express-public-files-overlays:server,express-public-files-overlays' -e PORT=80 --init -p 80:80 thejimmyg/express-public-files-overlays:0.1.1",
-    "fix": "standard --fix index.js bin/*.js lib/*.js",
-    "start": "node bin/server.js"
+    "fix": "standard --fix"
   },
   "author": "JimmyG",
   "license": "MIT",

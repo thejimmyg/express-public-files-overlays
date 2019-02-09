@@ -32,17 +32,22 @@ Internally, the code is designed to work in these stages:
 
 See the `./example` directory.
 
+
 ## Dev
 
 ```
 npm run fix
-npm run "docker:build"
-npm run "docker:run"
-npm run "docker:push"
 ```
 
 
 ## Changelog
+
+### 0.1.2 2019-02-08
+
+* Improved Docker example
+* Added `path.normalize()` to the directories specified in `overlay()`
+* Improved logging
+* Removed accidentally added JS files. They are released under the licenses described here: https://github.com/thejimmyg/bootstrap-flexbox-overlay/blob/5b85a49741c1521c77fff1bff0b56947fa804854/LICENSE.md and https://github.com/defunkt/jquery-pjax/blob/master/LICENSE
 
 ### 0.1.1 2019-02-07
 

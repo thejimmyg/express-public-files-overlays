@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "description": "Serve a set of static files from each URL path, looking in each of a set of directories in turn.",
   "scripts": {
-    "docker:build": "docker build . -t thejimmyg/express-public-files-overlays:0.1.0",
+    "docker:build": "echo 'Docker cannnot copy files from a parent directory so we need to put the current dev version of express-public-files-overlays in this directory and change package.json'; mkdir -p express-public-files-overlays ; rsync --delete --exclude='example' --exclude='*.DS_Store' --exclude='.git' --exclude='node_modules' -aHxv ../ express-public-files-overlays/ ; cat package.json | sed -e 's|file:..|file:express-public-files-overlays|g' > package.json.docker ; docker build . -t thejimmyg/express-public-files-overlays:0.1.0",
     "docker:push": "docker push thejimmyg/express-public-files-overlays:0.1.0",
-    "docker:build:test": "docker build . -t thejimmyg/express-public-files-overlays:test",
+    "docker:tag:test": "docker image tag thejimmyg/express-public-files-overlays:0.1.0 thejimmyg/express-public-files-overlays:test",
     "docker:push:test": "docker push thejimmyg/express-public-files-overlays:test",
     "docker:run": "docker run -e SCRIPT_NAME='' -e DEBUG'=express-public-files-overlays:server,express-public-files-overlays' -e PORT=80 --init -p 80:80 thejimmyg/express-public-files-overlays:0.1.0",
-    "fix": "standard --fix *.js",
+    "fix": "standard --fix",
     "start": "node server.js"
   },
   "author": "JimmyG",
