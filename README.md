@@ -9,7 +9,7 @@ The components in this package make use of the `app.locals.publicFiles` namespac
 
 Configuration environment variables for the example.
 
-* `PUBLIC_FILES` - JSON-encoded mapping of URL paths to serve static files at, and the directories to look in for each file under that path. e.g. `{"/public/js": ["./jquery/", "./react"], "/theme": ["./static"]}`
+* `PUBLIC_FILES` - JSON or YAML encoded mapping of URL paths to serve static files at, and the directories to look in for each file under that path. e.g. `{"/public/js": ["./jquery/", "./react"], "/theme": ["./static"]}`
 
 **Any configuration from `PUBLIC_FILES` gets merged into existing configuration such that it is used in preference to it. Effectively, the `PUBLIC_FILES` settings override settings defined in code.**
 
